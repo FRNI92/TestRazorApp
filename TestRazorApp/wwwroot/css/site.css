@@ -296,7 +296,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute; /* Om den inte är centrerad rätt */
+    position: absolute; /* Om den inte är  centrerad rätt */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Flyttar den till exakt mitten */
