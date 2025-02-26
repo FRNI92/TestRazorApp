@@ -2,7 +2,7 @@ trigger:
 - master  # Ändra om din branch heter något annat
 
 pool:
-  vmImage: 'windows-latest'  # Windows behövs för .NET
+  name: 'TestRazorPage'  # Windows behövs för .NET
 
 steps:
 - task: UseDotNet@2
