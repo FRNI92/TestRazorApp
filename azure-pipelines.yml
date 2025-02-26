@@ -26,8 +26,8 @@ steps:
 
 - task: AzureRmWebAppDeployment@4
   inputs:
-    azureSubscription: '<Din Azure Service Connection>'
+    azureSubscription: 'AzureSub'  # Byt till din riktiga Service Connection
     appType: 'webApp'
-    WebAppName: 'testrazorapp'  # Byt till ditt App Service-namn
+    WebAppName: 'testrazorapp'  # Byt till ditt App Service-namn i Azure
     package: '$(Build.ArtifactStagingDirectory)/*.zip'
     runtimeStack: 'DOTNETCORE|9.0'
