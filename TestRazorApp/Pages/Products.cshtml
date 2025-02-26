@@ -1,0 +1,17 @@
+﻿@page
+@model TestRazorApp.Pages.ProductsModel
+
+<div>
+    <h1>Product List</h1>
+    <ul>
+        @foreach (var product in Model.Products)
+        {
+            <li>
+                <h2>@product.Name</h2>
+                <p>Price: $@product.Price</p>
+            </li>
+        }
+    </ul>
+</div>
+
+
