@@ -1,0 +1,33 @@
+trigger:
+- master  # Ändra om din branch heter något annat
+
+pool:
+  name: 'TestRazorPage'  # Windows behövs för .NET
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '9.x'  # Ändra till din version om den skiljer sig
+
+- script: dotnet restore
+  displayName: 'Restore dependencies'
+
+- script: dotnet build --configuration Release
+  displayName: 'Build application'
+
+- script: dotnet publish -c Release -o $(Build.ArtifactStagingDirectory)
+  displayName: 'Publish application'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    azureSubscription: 'AzureSub'  # Byt till din riktiga Service Connection
+    appType: 'webApp'
+    WebAppName: 'testrazorapp'  # Byt till ditt App Service-namn i Azure
+    package: '$(Build.ArtifactStagingDirectory)/*.zip'
+    runtimeStack: 'DOTNETCORE|9.0'
