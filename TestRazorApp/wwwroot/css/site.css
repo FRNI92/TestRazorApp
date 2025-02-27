@@ -300,6 +300,7 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Flyttar den till exakt mitten */
+
 }
 
     .page-content h1 {
@@ -314,3 +315,21 @@ footer {
         color: #162938;
         line-height: 1.6; /* Ger mer luft mellan text */
     }
+
+
+/*carusell to make transition better*/
+
+.carousel-inner {
+    overflow: hidden; /* Förhindrar overflow av bilder */
+}
+
+.carousel-item img {
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    object-fit: cover; /* Gör så att bilderna fyller karusellen */
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+    transition: transform 1s ease, opacity 1s ease;
+}
