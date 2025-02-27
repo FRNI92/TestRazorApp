@@ -10,6 +10,8 @@ builder.Services.AddSingleton<ProductService>();
 
 var app = builder.Build();
 
+
+
 if (!app.Environment.IsDevelopment())//migth comment out during development
 {
     app.UseExceptionHandler("/Error");
